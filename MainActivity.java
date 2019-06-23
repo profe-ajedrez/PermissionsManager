@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.skeleton.R;
-import com.example.skeleton.lib.RequestManager.RequestManager;
 import com.example.skeleton.lib.runnables.RunnableArgs;
 import com.example.skeleton.lib.services.connectivity.Connectivity;
 import com.example.skeleton.lib.services.permissions.PermissionsHandler;
@@ -61,31 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void iniciar() {
-        if (Connectivity.isNetworkAvailable(MainActivity.this)) {
-            RequestManager rm = RequestManager.builder(MainActivity.this)
-                                              .setUrl("https://api.github.com/users/octocat/orgs")
-                                              .setOnCompletion(new RunnableArgs() {
-                                                  @Override
-                                                  public void run() {
-
-                                                  }
-
-                                                  @Override
-                                                  public void run(Object ...args) {
-                                                      JSONObject j = (JSONObject) args[0];
-                                                      run();
-                                                  }
-
-                                              })
-                                              .setOnError(new RunnableArgs() {
-                                                  @Override
-                                                  public void run() {
-                                                      Toast.makeText(MainActivity.this, "error", Toast.LENGTH_SHORT)
-                                                              .show();
-                                                  }
-                                              });
-            rm.send(new JSONObject());
-        }
+        Toast.makeText(MainActivity.this, "Tenemos los permisos. adios", Toast.LENGTH_SHORT)
+                .show();
     }
 
     private void terminar() {
