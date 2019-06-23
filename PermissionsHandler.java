@@ -1,3 +1,4 @@
+//Change this to your own package structure
 package com.example.skeleton.lib.services.permissions;
 
 import android.app.Activity;
